@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {createAppAsyncThunk} from "./createAsyncThunkApp";
 import {handleServerNetworkError} from "../../component/Error";
-import {userApiб FoolowedUser } from "../../Api/Api";
+import {userApi, FoolowedUser } from "../../Api/Api";
 import {thunkTryCatch} from 'common/tryCatchThunk';
 export type InitialStateUserType = {
     users: Array<usersTypeData>
@@ -39,6 +39,26 @@ const usersFetch = createAppAsyncThunk<{ items: Array<usersTypeData>, totalUserC
            const res = await userApi.getUsers(arg.currentPage, arg.pageSize)
            return {items:res.items, totalUserCount:res.totalCount}
        }  )    
+    }
+)
+const followedThunk = createAppAsyncThunk<{item:usersTypeData }, string >(
+    'followed/post', async (arg: string,thunkAPI: any)=>{
+  return thunkTryCatch(thunkAPI, async ()=> {
+    const res = await FoolowedUser.Followed(arg)
+      return {item: res}
+      
+  })
+        
+    }
+)
+const followedThunk = createAppAsyncThunk<{item:usersTypeData }, string >(
+    'unfollowed/post', async (arg: string,thunkAPI: any)=>{
+  return thunkTryCatch(thunkAPI, async ()=> {
+    const res = await FoolowedUser.unFollowed(arg)
+      return {item: res}
+      
+  })
+        
     }
 )
 
