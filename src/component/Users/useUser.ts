@@ -10,9 +10,9 @@ const onChangeHandler = useCallback((e:any)=> {
   const onClickFolowed =useCallback((userId:string)=> {
      dispatch(userThunk.followedThunk(userId) )
    },[dispatch])
-const onClickUnFollowed=(userId:string)=>{
+const onClickUnFollowed=useCallback((userId:string)=>{
     dispatch(userThunk.unFollowed(userId))
-  }
+  },[dispatch])
 
   return {
 onChangeHandler,
