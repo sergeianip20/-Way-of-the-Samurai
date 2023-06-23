@@ -51,7 +51,7 @@ const followedThunk = createAppAsyncThunk<{item:usersTypeData }, string >(
         
     }
 )
-const followedThunk = createAppAsyncThunk<{item:usersTypeData }, string >(
+const unfollowedThunk = createAppAsyncThunk<{item:usersTypeData }, string >(
     'unfollowed/post', async (arg: string,thunkAPI: any)=>{
   return thunkTryCatch(thunkAPI, async ()=> {
     const res = await FoolowedUser.unFollowed(arg)
@@ -70,9 +70,11 @@ const slice = createSlice({
         builder.addCase(usersFetch.fulfilled , (state, action)=> {
              state.users = [...action.payload.items]
             state.totalUsersCount = action.payload.totalUserCount
-        })
+        }).addCase(followedThunk.fulfilled, (state, action)=>{
+            state.users = [...state.users.map((e)=> e.id === action.payload.item.id ? {...e, followed: action.payload.item.followed}: e )]
+        }
     }
 })
 
 export const Userreducer = slice.reducer
-export const userThunk = {usersFetch}
+export const userThunk = {usersFetch, followedThunk, unfollowedThunk}
