@@ -2,7 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {createAppAsyncThunk} from "./createAsyncThunkApp";
 import {handleServerNetworkError} from "../../component/Error";
 import {userApi} from "../../Api/Api";
-
+import {thunkTryCatch} from 'common/tryCatchThunk';
 export type InitialStateUserType = {
     users: Array<usersTypeData>
     pagesSize: number
@@ -35,17 +35,10 @@ type  userArgFetch = {
 }
 const usersFetch = createAppAsyncThunk<{ items: Array<usersTypeData>, totalUserCount:number }, userArgFetch>(
     'users/fetch', async (arg: userArgFetch, thunkAPI: any) => {
-        const {dispatch, rejectWithValue} = thunkAPI;
-        const res = await userApi.getUsers(arg.currentPage, arg.pageSize)
-        try {
-            console.log(res.items)
-        return {items:res.items, totalUserCount:res.totalCount}
-
-        } catch (e) {
-            handleServerNetworkError(e, dispatch);
-            return rejectWithValue(null);
-        }
-
+       return thunkTryCatch(thunkAPI, async ()=> {
+           const res = await userApi.getUsers(arg.currentPage, arg.pageSize)
+           return {items:res.items, totalUserCount:res.totalCount}
+       }  )    
     }
 )
 
