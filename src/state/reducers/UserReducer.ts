@@ -72,7 +72,10 @@ const slice = createSlice({
             state.totalUsersCount = action.payload.totalUserCount
         }).addCase(followedThunk.fulfilled, (state, action)=>{
             state.users = [...state.users.map((e)=> e.id === action.payload.item.id ? {...e, followed: action.payload.item.followed}: e )]
-        }
+        }).addCase(unfollowedThunk.fulfilled , (state, action)=> {
+            state.users = [...state.users.map((e)=> e.id === action.payload.item.id ? {...e, followed: action.payload.item.followed}: e )]
+            
+        })
     }
 })
 
