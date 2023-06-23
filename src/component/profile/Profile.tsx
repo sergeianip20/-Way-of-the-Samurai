@@ -7,13 +7,13 @@ import {ProfileImage} from "component/profile/ProfileImage";
 import {useAppDispatch, useAppSelector} from "component/hook/hook";
 import {ProfileThunk} from "state/reducers/ProfileReducer";
 import {Spin} from 'antd'
-
+import {isLoadingSelector, contacsSelector, fullNameSelector, imageSelector} from 'component/profile'
 export const Profile: FC = () => {
     const dispatch = useAppDispatch()
-    const isLoading = useAppSelector((state) => state.appReducer.isLoading)
-    const contacs = useAppSelector((state) => state.ProfileReducers.UserProfile.contacts)
-    const fullName = useAppSelector((state) => state.ProfileReducers.UserProfile.fullName)
-    const image = useAppSelector((state)=> state.ProfileReducers.UserProfile.photos.large)
+    const isLoading = useAppSelector(isLoadingSelector)
+    const contacs = useAppSelector(contacsSelector)
+    const fullName = useAppSelector(fullNameSelector)
+    const image = useAppSelector(imageSelector)
         let
     {
         userId
