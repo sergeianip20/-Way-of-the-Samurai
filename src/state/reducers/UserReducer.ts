@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {createAppAsyncThunk} from "./createAsyncThunkApp";
 import {handleServerNetworkError} from "../../component/Error";
-import {userApi} from "../../Api/Api";
+import {userApiб FoolowedUser } from "../../Api/Api";
 import {thunkTryCatch} from 'common/tryCatchThunk';
 export type InitialStateUserType = {
     users: Array<usersTypeData>
