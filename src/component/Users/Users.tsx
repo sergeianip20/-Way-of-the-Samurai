@@ -44,16 +44,21 @@ export const Users = () => {
                 { users.map((e)=> {
 
                 return {
-                  <Row>
+                  <Row key={e.id}>
                   <Card>
                   <Col> 
-                   <Avatar />
+                   <Avatar src={e.photos.small} />
                   
                   </Col>
                    <Col span={7}>
                   {e.name}
                   </Col>
-                 
+                   <Col span={7}>
+                     { {e.followed} ?  <Button onClick={()=>{onClickunFolloweds({e.id})}}> unFollowed </Button> :   <Button onClick={()=>{onClickFoloweds({e.id})}} >followed</Button>
+                       
+                     }
+                   
+                   </Col>
 
                   
                   </Card>
@@ -67,8 +72,8 @@ export const Users = () => {
               name
               </Col>
                 <Col span={4}>
-                  {user.followed ? <Button> unFollowed </Button>:
-                 <Button>followed</Button>
+                  {user.followed ? :
+                
                   }
                 </Col>
               
