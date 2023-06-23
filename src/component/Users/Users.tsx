@@ -31,6 +31,13 @@ export const Users = () => {
     const onChangeHandler = (e:any)=> {
         dispatch(userThunk.usersFetch({currentPage:e, pageSize:5}))
     }
+
+   const onClickFolowed =(userId:string)=> {
+     dispatch(userThunk.followedThunk(userId) )
+   }
+  const onClickunFollowed=(userId:string)=>{
+    dispatch(userThunk.unFollowed(userId))
+  }
     return <div>
 
         <Row>
