@@ -38,6 +38,18 @@ export const Users = () => {
                 <Menus />
             </Col>
             <Col span={21}>
+              <Row>
+              <Card>
+              <Col span={4}>
+              name
+              </Col>
+                <Col span={4}>
+                  {user.followed ? <Button> unFollowed </Button>:
+                 <Button>followed</Button>
+                  }
+                </Col>
+              </Card>
+                </Row>
         <Pagination onChange={(e)=> {onChangeHandler(e)}} defaultCurrent={currentpage} total={totalCount}/>
 
             </Col>
