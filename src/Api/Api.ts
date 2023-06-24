@@ -49,7 +49,7 @@ export const ProfileContent = {
             return response.data
         })
     },
-    updateProfile(model:any){
+    updateProfile(model:userModelType){
   return instance.put('/profile' , model)
         
     }
@@ -75,4 +75,20 @@ export type ArgLoginType = {
     email: string
     password: string
     rememberMe: boolean
+}
+export type userModelType ={
+lookingForAJob: boolean
+    lookingForAJobDescription: string
+    userId: number
+contacts: {
+        facebook: string
+        github: string,
+        instagram: string
+        mainLink: string
+        twitter: string
+        vk: string
+        website: string
+        youtube: string
+    }
+    
 }
