@@ -48,6 +48,17 @@ export const ProfileContent = {
             console.log('api from', response)
             return response.data
         })
+    },
+    updateProfile(model:any){
+  return instance.put('/profile' , model)
+        
+    }
+    updatePhoto(files:any){
+    return instance.put('/profile/photo', {image: files})
+        
+    }, 
+    updateStatus(status:string){
+        return instance.put('/profile/status', {status})
     }
 }
 export const authMe = () => {
