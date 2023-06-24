@@ -17,7 +17,7 @@ const FetchProfile = createAppAsyncThunk<{ profile: UserProfileData }, string>
     )
 })
 const updateProfile = createAppAsyncThunk<{profile:UserProfileData}, userModelType  >
-    ('profile/update, async (arg:userModelType, thunkAPI:any)=>{
+    ('profile/update', async (arg:userModelType, thunkAPI:any)=>{
          const {getState} = thunkAPI
 return thunkTryCatch(thunkAPI, async () => {
      const state = getState()
