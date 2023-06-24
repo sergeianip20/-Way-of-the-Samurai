@@ -43,7 +43,7 @@ return thunkTryCatch(thunkAPI, async () => {
     
 })
     })
-
+const updateFotoThunk = createAppAsyncThunk<{''}, >
     
 let initialState = {
 
