@@ -5,9 +5,22 @@ import {ProfileContent, userModelType } from 'Api/Api'
 
 const FetchProfile = createAppAsyncThunk<{ profile: UserProfileData }, string>
 ("profile/fetch", async (arg: string, thunkAPI: any) => {
-    const {getState} = thunkAPI
+
     return thunkTryCatch(thunkAPI, async () => {
-        const state = getState()
+        
+            const res = await ProfileContent.getProfile(arg)
+
+
+            return {profile: res}
+
+        }
+    )
+})
+const updateProfile = createAppAsyncThunk<{profile:UserProfileData}, userModelType  >
+    ('profile/update, async (arg:userModelType, thunkAPI:any)=>{
+         const {getState} = thunkAPI
+return thunkTryCatch(thunkAPI, async () => {
+     const state = getState()
         const apiModel: userModelType ={
             contacts: {
          facebook: state.facebook,
@@ -23,19 +36,9 @@ const FetchProfile = createAppAsyncThunk<{ profile: UserProfileData }, string>
              lookingForAJob: state.lookingForAJob,
     lookingForAJobDescription: state.lookingForAJobDescription
     userId: state.userId
+     ...arg.domanModel
+    
         }
-            const res = await ProfileContent.getProfile(arg)
-
-
-            return {profile: res}
-
-        }
-    )
-})
-const updateProfile = createAppAsyncThunk<{profile:UserProfileData}, userModelType  >
-    ('profile/update, async (arg:userModelType, thunkAPI:any)=>{
-return thunkTryCatch(thunkAPI, async () => {
-     
      const res = await ProfileContent.updateProfile(arg)
     
 })
