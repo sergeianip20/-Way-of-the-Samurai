@@ -1,11 +1,29 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {thunkTryCatch} from 'common/tryCatchThunk';
 import {createAppAsyncThunk} from 'state/reducers/createAsyncThunkApp'
-import {ProfileContent} from 'Api/Api'
+import {ProfileContent, userModelType } from 'Api/Api'
 
 const FetchProfile = createAppAsyncThunk<{ profile: UserProfileData }, string>
-("auth/me", async (arg: string, thunkAPI: any) => {
+("profile/fetch", async (arg: string, thunkAPI: any) => {
+    const {getState} = thunkAPI
     return thunkTryCatch(thunkAPI, async () => {
+        const state = getState()
+        const apiModel: userModelType ={
+            contacts: {
+         facebook: state.facebook,
+            github: state.github,
+            instagram: state.instagram,
+            mainLink: state.mainLink,
+            twitter: state.twitter,
+            vk: state.vk,
+            website: state.website,
+            youtube: state.youtube,
+               }
+            fullName: state.fullName,
+             lookingForAJob: state.lookingForAJob,
+    lookingForAJobDescription: state.lookingForAJobDescription
+    userId: state.userId
+        }
             const res = await ProfileContent.getProfile(arg)
 
 
@@ -14,7 +32,16 @@ const FetchProfile = createAppAsyncThunk<{ profile: UserProfileData }, string>
         }
     )
 })
+const updateProfile = createAppAsyncThunk<{profile:UserProfileData}, userModelType  >
+    ('profile/update, async (arg:userModelType, thunkAPI:any)=>{
+return thunkTryCatch(thunkAPI, async () => {
+     
+     const res = await ProfileContent.updateProfile(arg)
+    
+})
+    })
 
+    
 let initialState = {
 
     PostData: [
