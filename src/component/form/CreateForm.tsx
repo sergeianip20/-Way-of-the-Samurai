@@ -1,27 +1,30 @@
-import React from 'react'
-import {Input, Row, Col, Card} from 'antd'
-import {UserOutlined, GithubOutlined } from '@ant-design/icons'
+export const ProfileForm = () => {
+    const {register, watch, handleSubmit} = useForm();
+
+    return (<>
+        <Row>
+            <Card title='Изменения профиля' bordered={false} style={{width: 1200}}>
+                <Form>
+                <Row>
+                    <Col span={4}>Имя</Col>
+                    <Col span={20}>
+                        <Input prefix={<UserOutlined/>}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={4}> gitHub </Col>
+                    <Col span={20}><Input prefix={<GithubOutlined/>}/> </Col>
+                </Row>
+                <UpdateInfo  register={register} label={'vk'} />
+                    <UpdateInfo  register={register} label={'instagram'} />
+                    <UpdateInfo  register={register} label={'twitter'} />
+                    <UpdateInfo  register={register} label={'website'} />
+                    <UpdateInfo  register={register} label={'youtube'} />
 
 
-export const ProfileForm=()=> {
-  
-
-return( <>
-<Row>
-  <Card title='Изменения профиля' bordered={false} style={{width:1200}}>
-    <Row>
-      <Col span={4}>Имя</Col>
-      <Col span={20}>
-        <Input prefix={<UserOutlined />} />
-      </Col>
-    </Row>
-    <Row>
-      <Col span={4}> gitHub </Col>
-      <Col span={20}><Input prefix={<GithubOutlined />} /> </Col>
-    </Row>
-    <Row><Col span={4}> vk </Col>
-      <Col span={20}><Input /> </Col> </Row>
-  </Card>
-</Row>
-</>)
+                </Form>
+<UpdatePhoto />
+            </Card>
+        </Row>
+    </>)
 }
