@@ -3,6 +3,7 @@ import {Menu} from '../component/Menu/Menu'
 const meta: Meta<typeof Menu> = {
   title: 'Example/Menu',
   component: Menu,
+  decorators: [ReduxStoreProviderDecorator]
 } 
 export default meta;
 type Story = StoryObj<typeof Menu>;
