@@ -1,9 +1,10 @@
 import {SubmitHandler, useForm} from "react-hook-form";
-import {useAppSelector} from 
+import {useAppSelector, useAppDispatch} from "component/hook/hook";
 
 export const ProfileForm = () => {
     const {register, watch, handleSubmit} = useForm();
     const userId = useAppSelector((state)=> state.authReducer.userId)
+    const dispatch = useAppDispatch()
     const onSubmit:SubmitHandler =data => {
        let apiModel ={
       contacts: {
