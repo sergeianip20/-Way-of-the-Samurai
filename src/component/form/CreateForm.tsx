@@ -21,8 +21,13 @@ export const ProfileForm = () => {
          fullName: data.fullName,  
               lookingForAJob: data.lookingForAJob,
     lookingForAJobDescription: data.lookingForAJobDescription
+
+        
        }
-    }
+    dispatch(ProfileThunk.updateProfile(apiModel)) 
+}
+    
+    
     return (<>
         <Row>
             <Card title='Изменения профиля' bordered={false} style={{width: 1200}}>
@@ -42,8 +47,8 @@ export const ProfileForm = () => {
                     <UpdateInfo  register={register} label={'twitter'} />
                     <UpdateInfo  register={register} label={'website'} />
                     <UpdateInfo  register={register} label={'youtube'} />
-
-
+            <Checkbox {...register('lookingForAJob')} />
+     
                 </Form>
 <UpdatePhoto />
             </Card>
