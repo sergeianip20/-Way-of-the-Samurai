@@ -18,6 +18,8 @@ export const ProfileForm = () => {
                }
      userId
          fullName: data.fullName,  
+              lookingForAJob: data.lookingForAJob,
+    lookingForAJobDescription: data.lookingForAJobDescription
        }
     }
     return (<>
