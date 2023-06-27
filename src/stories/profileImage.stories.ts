@@ -3,6 +3,7 @@ import {ProfileImage} from '../component/profile/ProfileImage'
 const meta: Meta<typeof ProfileImage> = {
   title: 'Example/ProfileImage',
   component: ProfileImage,
+  decorators: [ReduxStoreProviderDecorator]
 } 
 export default meta;
 type Story = StoryObj<typeof ProfileImage>;
