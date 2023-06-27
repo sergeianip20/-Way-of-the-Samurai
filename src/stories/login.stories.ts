@@ -4,7 +4,7 @@ import {ReduxStoreProviderDecorator} from './ReduxStoreProviderDecorator'
 const meta: Meta<typeof Login> = {
   title: 'Example/Login',
   component: Login,
-  decorator: ReduxStoreProviderDecorator
+  decorators: [ReduxStoreProviderDecorator]
 } 
 export default meta;
 type Story = StoryObj<typeof Login>;
