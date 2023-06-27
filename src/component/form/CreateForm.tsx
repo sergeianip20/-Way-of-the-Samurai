@@ -24,7 +24,7 @@ export const ProfileForm = () => {
 
         
        }
-    dispatch(ProfileThunk.updateProfile(apiModel)) 
+    dispatch(ProfileThunk.updateProfile(apiModel))
 }
     
     
