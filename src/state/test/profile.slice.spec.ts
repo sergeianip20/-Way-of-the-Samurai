@@ -1,3 +1,5 @@
+import {ProfileThunk , ProfileReducers } from '../reducers/Profilereducer'
+
 descride('authReducer', ()=>{
 let initialState = {
 
