@@ -18,9 +18,9 @@ it('login aut', ()=>{
 
   const userId = 2
   const action = authThunk.login({userId}, 'requsetdId', data)
-  const state= 
+  const state= authReducer(initialState,action )
 
-  
+  expect(state.userId).toEqual(userId)
 })
   
 })
