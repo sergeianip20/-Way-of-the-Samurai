@@ -32,7 +32,7 @@ let initialState = {
     }
 }
 
-it('updateprofile', ()=>{
+it('Getprofile', ()=>{
 const data = {
 id:5
      
@@ -65,17 +65,30 @@ aboutMe: ' ',
 
   expect(state.UserProfile).toQuel(profile)
 }),
-    it('profileGet', ()=>{
+    it('updareProfile', ()=>{
 const data = {
-id:5
+ contacts: {
+            facebook: ' 3',
+            github: '5',
+            instagram: '3',
+            mainLink: '4',
+            twitter: '4',
+            vk: '',
+            website: '',
+            youtube: ' ',
+        },
+        fullName: ' ',
+        lookingForAJob: true,
+        lookingForAJobDescription: ' ',
+        userId: 10,
      
  }
     const profile ={
 
 aboutMe: ' ',
         contacts: {
-            facebook: ' 2',
-            github: '2',
+            facebook: ' 3',
+            github: '5',
             instagram: '3',
             mainLink: '4',
             twitter: '4',
