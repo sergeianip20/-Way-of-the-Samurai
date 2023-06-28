@@ -29,7 +29,51 @@ let initialState: InitialStateUserType = {
 }
 it('fetchUser', ()=>{
 
-
+   const item = [ {
+ id: 2,
+    followed: true,
+    name: '',
+    status: ' ',
+    photos: {
+        large: ' ',
+        small: ' ',
+    },
+       
+    },
+                 {
+ id: 2,
+    followed: true,
+    name: '',
+    status: ' ',
+    photos: {
+        large: ' ',
+        small: ' ',
+    },
+       
+    },
+                 {
+ id: 2,
+    followed: true,
+    name: '',
+    status: ' ',
+    photos: {
+        large: ' ',
+        small: ' ',
+    },
+       
+    },
+                 {
+ id: 2,
+    followed: true,
+    name: '',
+    status: ' ',
+    photos: {
+        large: ' ',
+        small: ' ',
+    },
+       
+    },
+                ]
   
 })
     
