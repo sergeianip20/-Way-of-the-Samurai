@@ -21,6 +21,28 @@ it('login aut', ()=>{
   const state= authReducer(initialState,action )
 
   expect(state.userId).toEqual(userId)
-})
+}),
+  it('AuthMe', ()=>{
+ const data = {
+ email:sergeianp20@gmail.com,
+   password: 'S25anipch.',
+   rememberMe:false
+   
+
+   
+ }
+
+  const profile ={
   
+userId: 27504,
+    email: sergeianip20@gmail.com,
+    login: SergeiAnipchenko,
+      
+  }
+  const action = authThunk.login({profile}, 'requsetdId', data)
+  const state= authReducer(initialState,action )
+
+  expect(state.userId).toBe(27504)
+      expect(state.login).toBe('sergeianip20@gmail.com')
+})
 })
