@@ -28,7 +28,11 @@ let initialState: InitialStateUserType = {
     toggleisFollowed: []
 }
 it('fetchUser', ()=>{
-
+  const data ={
+currentPage:1,
+      pageSize: 5
+      
+  }
    const item = [ {
  id: 2,
     followed: true,
@@ -74,7 +78,12 @@ it('fetchUser', ()=>{
        
     },
                 ]
-  
+
+
+const action = userThunk.usersFetch(item, 'requireId' , data)
+    const state= Userreducer(initialState,action )
+
+    expect(state.users).toQuel(item)
 })
     
 })
