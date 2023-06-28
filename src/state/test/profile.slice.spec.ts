@@ -32,6 +32,38 @@ let initialState = {
     }
 }
 
+it('profileGet', ()=>{
+const data = {
+id:5
+     
+ }
+    const profile ={
 
+aboutMe: ' ',
+        contacts: {
+            facebook: ' 2',
+            github: '2',
+            instagram: '3',
+            mainLink: '4',
+            twitter: '4',
+            vk: '',
+            website: '',
+            youtube: ' ',
+        },
+        fullName: ' ',
+        lookingForAJob: true,
+        lookingForAJobDescription: ' ',
+        userId: 10,
+        photos: {
+            large: ' ',
+            small: ' '
+        }
+        
+    }
+      const action = authThunk.login({profile}, 'requsetdId', data)
+  const state= authReducer(initialState,action )
+
+  expect(state.UserProfile).toQuel(profile)
+})
   
 })
